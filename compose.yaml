@@ -9,10 +9,13 @@ services:
         networks:
           - devbox
     moodle:
-        image: moodlehq/moodle-php-apache:$MOODLE_DOCKER_PHP_VERSION
+        # image: moodlehq/moodle-php-apache:$MOODLE_DOCKER_PHP_VERSION
+        build:
+          context: .
         volumes:
           - moodledata:/var/www/moodledata
           - $MOODLE_DOCKER_WWWROOT:/var/www/html
+          - /Users/junxian/Desktop/FYP/spectrumGPT-tutoring-agent:/var/www/html/local/spectrumgpt
         depends_on:
           - postgres
         environment:
