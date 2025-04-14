@@ -22,6 +22,10 @@ services:
           - VIRTUAL_HOST=moodle.local
         networks:
           - devbox
+        command: >
+          sh -c "php /var/www/html/local/spectrumgpt/cli/start_ws_server.php & apache2-foreground"
+        ports:
+          - "8091:8091"
     mail:
         image: axllent/mailpit:latest
         ports:
