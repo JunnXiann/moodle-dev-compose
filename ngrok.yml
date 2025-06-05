@@ -1,0 +1,7 @@
+tunnels:
+  moodle:
+    addr: 80
+    proto: http
+  websocket:
+    addr: 8091
+    proto: http
