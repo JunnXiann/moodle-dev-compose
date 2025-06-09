@@ -6,6 +6,7 @@ services:
         volumes:
           - /var/run/docker.sock:/tmp/docker.sock:ro
           - ./nginx_proxy.conf:/etc/nginx/conf.d/nginx_proxy.conf:ro
+          # - ./ws_location.conf:/etc/nginx/vhost.d/moodle.local:ro
         networks:
           - devbox
     moodle:
@@ -20,6 +21,7 @@ services:
           - postgres
         environment:
           - VIRTUAL_HOST=moodle.local
+          # - CERT_NAME=localhost
         networks:
           - devbox
         command: >
